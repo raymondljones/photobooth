@@ -1,0 +1,31 @@
+@import url("../../node_modules/css-magic/less/ray.less");
+
+@ray-blue: #004980;
+@ray-gray: lighten(@black,@fitty);
+
+.object-fit(@fit) {
+	-moz-object-fit: @fit;
+	-ms-object-fit: @fit;
+	-o-object-fit: @fit;
+	-webkit-object-fit: @fit;
+	object-fit: @fit;
+}
+
+.placeholder(@c) {
+	
+	&::-moz-placeholder {
+		color: @c;
+	}
+	&::-ms-placeholder {
+		color: @c;
+	}
+	&::-o-placeholder {
+		color: @c;
+	}
+	&::-webkit-placeholder {
+		color: @c;
+	}
+	&::placeholder {
+		color: @c;
+	}
+}

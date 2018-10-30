@@ -1,0 +1,15 @@
+project/src/node_modules
+javascript.js
+javascript-client.js
+javascript-ie8.js
+javascript-ie9.js
+css.css
+css-client.css
+css-print.css
+css-ie9.css
+project/src/html/api/node_modules
+project/src/pkg
+
+javascript-photos.js
+css-photos.css
+package-lock.json

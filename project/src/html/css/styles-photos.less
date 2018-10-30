@@ -1,0 +1,140 @@
+html,
+html body {
+	font-size: 2.5vw;
+	font-family: sans-serif;
+	color: @white;
+	
+	@media (max-width: @small) {
+		
+		font-size: 3.5vw;
+	}
+	
+	@media (min-width: @large) {
+		
+		font-size: 21.175px;
+	}
+}
+
+body {
+	background-color: @black;
+	
+	html:not(.api-connected) & {
+		
+		&:after {
+			.box(@fixed,99999,@zero,@initial,@initial,@zero,@hunnid,@hunnid);
+			.content(" ");
+			background-color: fade(@black,@fitty);
+		}
+	}
+	
+	> header { }
+	
+	> main {
+		.padding(2rem);
+		
+		> article {
+			
+			> #print {
+				.box(@fixed,@initial,-999999999px,@initial,@initial,-999999999px,@initial,@initial);
+			}
+			
+			> ul {
+				list-style-type: @none;
+				.padding(@zero @i);
+				.margin(@zero);
+				font-size: @zero;
+				
+				> li {
+					.inline-block;
+					.top;
+					font-size: 1rem;
+					.margin(.5rem);
+					.padding(.5rem);
+					width: ~"calc(25% - 1rem)";
+					.border(1px,@solid,@white);
+					.pointer;
+					position: @relative;
+					
+					@media (max-width: @large) {
+						
+						& {
+							width: ~"calc(33.3333% - 1rem)";
+						}
+					}
+					
+					@media (max-width: @medium) {
+						
+						& {
+							width: ~"calc(50% - 1rem)";
+						}
+					}
+					
+					@media (max-width: @small) {
+						
+						& {
+							width: ~"calc(100% - 1rem)";
+						}
+					}
+					
+					img {
+						.block;
+						.margin(@zero);
+						.padding(@zero);
+						width: @hunnid;
+					}
+					
+					a {
+						
+						&.close {
+							.box(@absolute,@initial,@zero,@zero,@initial,@initial,1rem,1rem);
+							.border-radius(@fitty);
+							.translate(@fitty,-@fitty);
+							color: @white;
+							background-color: @red;
+							.center;
+							line-height: .9rem;
+							font-size: .5rem;
+							text-decoration: @none;
+							.border(1px,@solid,@white);
+							opacity: 0;
+							.click-thru;
+							.transition(.25s,@all);
+							
+							html.no-touch &:hover,
+							&:active {
+								background-color: @black;
+								opacity: 1;
+								.click;
+							}
+						}
+					}
+					
+					html.no-touch &:hover,
+					&:active,
+					html.touch &.active {
+						
+						a {
+						
+							&.close {
+								opacity: 1;
+								.click;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	> footer { }
+}
+
+@keyframes taken {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		.transform(rotate(90deg));
+	}
+}
