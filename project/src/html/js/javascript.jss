@@ -1,7 +1,7 @@
-jQuery = require('../../node_modules/jquery/dist/jquery.min.js');
-require('../../node_modules/js-magic/js/ray.js');
-require('../../node_modules/js-magic/jquery/plugins/jquery.touchSwipe.js');
-require('../../node_modules/js-magic/jquery/jquery.ray.js');
+jQuery = require('jquery/dist/jquery.min.js');
+require('javascript-magic/js/ray.js');
+require('javascript-magic/jquery/plugins/jquery.touchSwipe.js');
+require('javascript-magic/jquery/jquery.ray.js');
 $ = jQuery;
 
 var socket;

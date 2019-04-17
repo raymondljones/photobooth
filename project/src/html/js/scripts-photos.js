@@ -54,9 +54,17 @@ $.fn.WebSocketConnect = function () {
 			
 			$socket.close ();
 		}
+		
+		$host = window.location.hostname;
+		$protocol = "wss";
+		$path = "/socket";
+		if ($host.indexOf ('localhost') > -1) {
+			$protocol = "ws";
+			$path = ":8890";
+		}
 	
-		$socket = new WebSocket ("ws://192.168.100.1:8890", 'echo-protocol');
-
+		$socket = new WebSocket ($protocol + "://" + $host + $path, 'echo-protocol');
+	
 		$socket.onopen = function () {
 		
 			window.debug.warn ("Connected to API Websocket ...");
