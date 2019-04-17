@@ -27,6 +27,7 @@ $.fn.chosenOption = function () {
 
 $.fn.errBack = function (error) {
 	
+	$('html').removeClassIfExists ('cam-supported').removeClassIfExists ('cam-error').addClassIfNotExists ('cam-not-supported');
 	console.log("Video capture error: ", error.code); 
 };
 
@@ -152,49 +153,57 @@ $.fn.resizeFx (
 $.fn.start = function () {
 
 	if (navigator.getUserMedia) {
-		navigator.getUserMedia ({
-			video: true,
-			audio:false
-		},
-		function (stream) {
+			
+		navigator.getUserMedia ($videoObj, function(stream) {
+		
 			$('html').removeClassIfExists ('cam-not-supported').removeClassIfExists ('cam-error').addClassIfNotExists ('cam-supported');
 			supported = true;
+			
+			$videoElem.srcObject = stream;
+			$videoElem.play();
 		
-			if (navigator.getUserMedia) {
-			
-				navigator.getUserMedia ($videoObj, function(stream) {
-				
-					$videoElem.srcObject = stream;
-					$videoElem.play();
-				
-				}, $.fn.errBack);
-			
-			} else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
-			
-				navigator.webkitGetUserMedia (videoObj, function(stream){
-				
-					$videoElem.src = window.webkitURL.createObjectURL (stream);
-					$videoElem.play();
-				
-				}, $.fn.errBack);
-			
-			} else if (navigator.mozGetUserMedia) { // moz-prefixed
-			
-				navigator.mozGetUserMedia (videoObj, function(stream){
-				
-					$videoElem.src = window.URL.createObjectURL (stream);
-					$videoElem.play ();
-				
-				}, $.fn.errBack);
-			
-			}
-		},
-		function(error) {
+		}, $.fn.errBack);
+	
+	} else if (navigator.webkitGetUserMedia) { // WebKit-prefixed
+	
+		navigator.webkitGetUserMedia ($videoObj, function(stream){
 		
-			$('html').removeClassIfExists ('cam-supported').removeClassIfExists ('cam-not-supported').addClassIfNotExists ('cam-error');
-			return false;
+			$('html').removeClassIfExists ('cam-not-supported').removeClassIfExists ('cam-error').addClassIfNotExists ('cam-supported');
+			supported = true;
+			
+			$videoElem.src = window.webkitURL.createObjectURL (stream);
+			$videoElem.play();
 		
-		});
+		}, $.fn.errBack);
+	
+	} else if (navigator.mediaDevices.getUserMedia) { // WebKit-prefixed
+
+		navigator.mediaDevices.getUserMedia ($videoObj)
+			.then(function(stream) {
+  				
+  				$('html').removeClassIfExists ('cam-not-supported').removeClassIfExists ('cam-error').addClassIfNotExists ('cam-supported');
+				supported = true;
+			
+				$videoElem.srcObject = stream;
+				$videoElem.play();
+			
+			})
+			.catch(function(err) {
+			  
+			  $.fn.errBack(err);
+			});
+
+	} else if (navigator.mozGetUserMedia) { // moz-prefixed
+	
+		navigator.mozGetUserMedia ($videoObj, function(stream){
+		
+			$('html').removeClassIfExists ('cam-not-supported').removeClassIfExists ('cam-error').addClassIfNotExists ('cam-supported');
+			supported = true;
+			
+			$videoElem.src = window.URL.createObjectURL (stream);
+			$videoElem.play ();
+		
+		}, $.fn.errBack);
 	
 	} else {
 	

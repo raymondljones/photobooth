@@ -18,11 +18,14 @@
 			"javascript-ie9.jss"
 		],
 		"directories": [
-			"/images"
+			"/images",
+			"/api"
 		],
 		"ignore": [
 			"/node_modules/**/**",
+			"node_modules/**/**",
 			"/**/*.log",
+			"log/*.log",
 			"/**/*-*-*-*-*.jpg"
 		],
 		"pages": [
