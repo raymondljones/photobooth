@@ -56,12 +56,8 @@ $.fn.WebSocketConnect = function () {
 		}
 		
 		$host = window.location.hostname;
-		$protocol = "wss";
+		$protocol = "ws";
 		$path = "/socket";
-		if ($host.indexOf ('localhost') > -1) {
-			$protocol = "ws";
-			$path = ":8890";
-		}
 	
 		$socket = new WebSocket ($protocol + "://" + $host + $path, 'echo-protocol');
 	
