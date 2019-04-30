@@ -18,6 +18,27 @@ $border = $('#border');
 $tracking = $('#tracking');
 $isTracking = false;
 $socket = false;
+$footer = $('footer');
+$rebootButton = $('#reboot-button');
+$cancelButton = $('#cancel-button');
+
+$footer.click (function (e) {
+	
+	$html.addClassIfNotExists ('ask');
+});
+
+$cancelButton.click (function (e) {
+	
+	$html.removeClassIfExists ('ask');
+});
+
+$rebootButton.click (function (e) {
+	
+	$reboot = {
+		message: "reboot"
+	};
+	$socket.send (JSON.stringify ($reboot));
+});
 
 $.fn.chosenOption = function () {
 	

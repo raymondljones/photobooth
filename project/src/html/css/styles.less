@@ -21,7 +21,7 @@ body {
 		
 		&:after {
 			.box(@fixed,99999,@zero,@initial,@initial,@zero,@hunnid,@hunnid);
-			.content(" ");
+			// .content(" ");
 			background-color: fade(@black,@fitty);
 		}
 	}
@@ -258,6 +258,12 @@ body {
 				.pointer;
 				.drop-shadow(@zero,@zero,.2rem,fade(@black,@fitty));
 				
+				html:not(.api-connected) & {
+		
+					opacity: .5;
+					.click-thru;
+				}
+				
 				> span {
 					.block;
 					width: @hunnid;
@@ -321,7 +327,74 @@ body {
 	}
 	
 	> footer {
-		.box(@fixed,400,@initial,@initial,@zero,@zero,@hunnid,@zero);
+		.box(@fixed,100000,1rem,1rem,@initial,@initial,2rem,2rem);
+		.border-radius(@fitty);
+		background-color: @red;
+		.overflow(@hidden);
+		
+		img {
+			.box(@absolute,@initial,@fitty,@initial,@initial,@fitty,60%,60%);
+			.translate(-@fitty,-@fitty);
+			.object-fit(@cover);
+		}
+	}
+	
+	> dialog {
+		.box(@fixed,110000,@zero,@initial,@initial,@zero,@hunnid,@hunnid);
+		.appearance(@none);
+		background-color: fade(@black,0%);
+		.border(@none);
+		.outline(@none);
+		.transition(.25s,@all);
+		.click-thru;
+		
+		html.ask & {
+			background-color: fade(@black,@fitty);
+			.click;
+		}
+		
+		> div {
+			.box(@absolute,@initial,300%,@initial,@initial,@fitty,@initial,@initial);
+			opacity: 0;
+			background-color: @white;
+			.translate(-@fitty,-@fitty);
+			.padding(1rem);
+			.transition(.25s,@all);
+			
+			
+			html.ask & {
+				.postop(@fitty);
+				opacity: 1;
+			}
+			
+			> h4 {
+				padding-top: @zero @i;
+				padding-bottom: 1rem @i;
+				font-size: 1rem @i;
+			}
+			
+			> div {
+				.center;
+				
+				button {
+					.appearance(@none);	
+					.border(@none);
+					.outline(@none);
+					color: @white;
+					.padding(.5rem,1rem,.5rem,1rem);
+					font-size: .8rem;
+					font-weight: bold;
+					
+					&#cancel-button {
+						background-color: #ff0000;
+					}
+					
+					&#reboot-button {
+						background-color: #00ff00;
+					}			
+				}
+			}
+		}
 	}
 }
 

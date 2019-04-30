@@ -8,6 +8,7 @@ var utf8 = require ("utf8");
 var logger = require ('logat');
 var uuid = require('uuid/v1');
 var path = require ('path');
+var exec = require ('child_process').exec;
 	
 fs.writeFile (
 	dir + '/log/access.log',
@@ -289,6 +290,37 @@ wsServer.on (
 					wsServer.connections.forEach (function (conn) {
 				
 						conn.sendUTF (JSON.stringify (removed));
+					});
+        		} else if (data.message == "reboot") {
+        			
+        			dmessage ("Rebooted");
+        			
+        			var rebooted = {
+						message: "rebooted"
+					};
+					
+					wsServer.connections.forEach (function (conn) {
+				
+						conn.sendUTF (JSON.stringify (rebooted));
+					});
+					
+					exec ('reboot',
+						(error, stdout, stderr) => {
+							
+							if (stdout !== null) {
+								
+								dmessage (stdout);
+							}
+							
+							if (stderr !== null) {
+								
+								derror (stderr);
+							}
+							
+							if (error !== null) {
+								
+								derror (error);
+							}
 					});
         		}
     		}
