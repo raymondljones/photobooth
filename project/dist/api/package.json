@@ -1,0 +1,22 @@
+{
+  "name": "photo-booth-api",
+  "version": "1.0.0",
+  "description": "Photo Booth Api",
+  "main": "photo-booth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raymond Lewis Jones",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "logat": "^1.0.6",
+    "path": "^0.12.7",
+    "utf8": "^2.1.2",
+    "util": "^0.10.3",
+    "uuid": "^3.2.1",
+    "websocket": "^1.0.25"
+  },
+  "devDependencies": {}
+}
