@@ -7,11 +7,12 @@ Clone this project into the directory of your choice on your Pi
 2. My `frontend-magic` node_module
 3. Nginx
 4. Chromium browser
+5. A Good webcam, not an Rpi cam
 
 ## Nodejs & Frontend Magic
 Frontend Magic is a node_module I wrote for building web apps & sites
 1. You need to have a recent version of nodejs running
-2. You need to globally install frontend-magic ... 'npm install -g frontend-magic@1.1.47'
+2. You need to globally install frontend-magic ... `npm install -g frontend-magic@1.1.47`
 
 ## Setup Nginx
 1. `sudo apt-get install nginx`
