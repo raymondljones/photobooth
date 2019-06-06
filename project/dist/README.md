@@ -41,11 +41,11 @@ _Each border must have a unique data-option attribute, and corresponding style t
 
 ## Start API via crontab
 1. cd to `/var/www/html/api` ... this is the nodejs server that hosts the websocket
-6. run `npm install`
-7. run `sudo bash`
-8. type `crontab -e` and then add the following line:
+2. run `npm install`
+3. run `sudo bash`
+4. type `crontab -e` and then add the following line:
 `* * * * * /usr/bin/php -q /var/www/html/api/cron.php > /dev/null 2>/dev/null &` ... to ensure the api will run (This tells the api to start running every minute, but will exit if it is already running)
-9. I also added `0 4 * * * /sbin/shutdown -r now > /dev/null 2>/dev/null &` to the crontab to allow the photobooth to reboot every morning at 4AM
+5. I also added `0 4 * * * /sbin/shutdown -r now > /dev/null 2>/dev/null &` to the crontab to allow the photobooth to reboot every morning at 4AM
 
 ## Setup chromium
 1. `sudo apt-get install chromium-browser -y`
