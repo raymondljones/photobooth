@@ -7,6 +7,7 @@ Clone this project into the directory of your choice on your Pi
 2. My `frontend-magic` node_module
 3. Nginx
 4. Chromium browser
+5. A Good webcam, not an Rpi cam
 
 ## Nodejs & Frontend Magic
 Frontend Magic is a node_module I wrote for building web apps & sites
