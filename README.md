@@ -69,7 +69,9 @@ This AP uses 192.168.100.*, the Pi itself will become 192.168.100.1
 12. run `iptables -t nat -A  POSTROUTING -o eth0 -j MASQUERADE`
 13. run `sh -c "iptables-save > /etc/iptables.ipv4.nat"`
 14. edit `/etc/rc.local` and add this line to the bottom `iptables-restore < /etc/iptables.ipv4.nat`
-15. `reboot`
+15. `sudo update-rc.d dnsmasq defaults`
+16. `sudo update-rc.d hostapd defaults`
+17. `reboot`
 
 Okay, you should now be setup.
 ### If you chose to NOT do the WiFi AP:
