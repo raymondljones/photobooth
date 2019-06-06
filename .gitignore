@@ -17,7 +17,4 @@ css-ie9.css
 !project/dist/js/javascript-ie9.js
 project/src/html/api/node_modules
 project/src/pkg
-
-javascript-photos.js
-css-photos.css
 package-lock.json
