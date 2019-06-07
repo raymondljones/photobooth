@@ -14,7 +14,7 @@ apt-get install php -y
 apt-get install chromium-browser -y
 cp -Rf ./reference/chromium-default.txt /home/pi/.config/lxsession/LXDE-pi/autostart
 
-apt-get install nodejs -y
+apt-get install nodejs npm -y
 cd /var/www/html/api && npm install
 cd $wd
 
