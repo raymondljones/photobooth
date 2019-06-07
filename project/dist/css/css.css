@@ -816,6 +816,13 @@ body > main > article #placeholder > section > video {
   -webkit-object-fit: cover;
   object-fit: cover;
 }
+html[data-style="gray"] body > main > article #placeholder > section > video {
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
 body > main > article #placeholder > section #tracking {
   position: absolute;
   z-index: auto;

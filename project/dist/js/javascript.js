@@ -109,7 +109,7 @@ $(function () {
 });
 
 
-}).call(this,require("p8eFRy"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_4a6fddbd.js","/")
+}).call(this,require("p8eFRy"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_abe96cd8.js","/")
 },{"./scripts.js":2,"buffer":4,"javascript-magic/jquery/jquery.ray.js":6,"javascript-magic/jquery/plugins/jquery.touchSwipe.js":7,"javascript-magic/js/ray.js":8,"jquery/dist/jquery.min.js":9,"p8eFRy":10}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 $window = $(window);
@@ -135,6 +135,8 @@ $socket = false;
 $footer = $('footer');
 $rebootButton = $('#reboot-button');
 $cancelButton = $('#cancel-button');
+
+$html.attr ('data-style', '');
 
 $footer.click (function (e) {
 	
@@ -243,6 +245,21 @@ $.fn.takePicture = function () {
 	$context.fill ();
 
 	$context.drawImage($videoElem, $newX, $newY, $vidWidth, $vidHeight);
+	
+	if ($html.attr ('data-style') == 'gray') {
+		
+		$imgData = $context.getImageData (0, 0, $newWidth, $newHeight);
+		$pixels  = $imgData.data;
+		for (var i = 0, n = $pixels.length; i < n; i += 4) {
+			
+			$grayscale = $pixels [i] * .3 + $pixels [i+1] * .59 + $pixels [i+2] * .11;
+			$pixels [i ] = $grayscale;        // red
+			$pixels [i+1] = $grayscale;        // green
+			$pixels [i+2] = $grayscale;        // blue
+			// pixels[i+3]              is alpha
+		}
+		$context.putImageData ($imgData, 0, 0);
+	}
 	
 	$context.drawImage($.fn.chosenOption (), 0, 0, $newWidth, $newHeight);
 	
@@ -415,6 +432,15 @@ $options.click (function (e) {
 	
 	$html.attr ('data-option', $(this).attr ('data-option'));
 	$border.css ('background-image', 'url(' + $(this).find ('img').first ().attr ('src') + ')');
+	$style = $(this).attr ('data-style');
+	
+	if (typeof $style !== typeof undefined && $style !== false) {
+		
+		$html.attr ('data-style', $style);
+	} else {
+		
+		$html.attr ('data-style', '');
+	}
 	
 });
 

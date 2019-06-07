@@ -93,6 +93,10 @@ body {
 						background-color: @ray-gray;
 						.overflow(@hidden);
 						.object-fit(@cover);
+						
+						html[data-style="gray"] & {
+							.filter(grayscale(@hunnid));
+						}
 					}
 				
 					#tracking {

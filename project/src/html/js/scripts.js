@@ -22,6 +22,8 @@ $footer = $('footer');
 $rebootButton = $('#reboot-button');
 $cancelButton = $('#cancel-button');
 
+$html.attr ('data-style', '');
+
 $footer.click (function (e) {
 	
 	$html.addClassIfNotExists ('ask');
@@ -129,6 +131,21 @@ $.fn.takePicture = function () {
 	$context.fill ();
 
 	$context.drawImage($videoElem, $newX, $newY, $vidWidth, $vidHeight);
+	
+	if ($html.attr ('data-style') == 'gray') {
+		
+		$imgData = $context.getImageData (0, 0, $newWidth, $newHeight);
+		$pixels  = $imgData.data;
+		for (var i = 0, n = $pixels.length; i < n; i += 4) {
+			
+			$grayscale = $pixels [i] * .3 + $pixels [i+1] * .59 + $pixels [i+2] * .11;
+			$pixels [i ] = $grayscale;        // red
+			$pixels [i+1] = $grayscale;        // green
+			$pixels [i+2] = $grayscale;        // blue
+			// pixels[i+3]              is alpha
+		}
+		$context.putImageData ($imgData, 0, 0);
+	}
 	
 	$context.drawImage($.fn.chosenOption (), 0, 0, $newWidth, $newHeight);
 	
@@ -301,6 +318,15 @@ $options.click (function (e) {
 	
 	$html.attr ('data-option', $(this).attr ('data-option'));
 	$border.css ('background-image', 'url(' + $(this).find ('img').first ().attr ('src') + ')');
+	$style = $(this).attr ('data-style');
+	
+	if (typeof $style !== typeof undefined && $style !== false) {
+		
+		$html.attr ('data-style', $style);
+	} else {
+		
+		$html.attr ('data-style', '');
+	}
 	
 });
 
