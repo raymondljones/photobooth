@@ -7,7 +7,9 @@
 ## Quick Install
 ### Run these commands
 Make sure you `cd` (via the command line) into the project directory (where the quick-install.sh file is)
+
 `sudo bash`
+
 `sh quick-install.sh`
 
 After reboot, the WiFi network will be:
