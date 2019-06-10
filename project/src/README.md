@@ -1,5 +1,9 @@
 # PhotoBooth Rpi Project
 
+![Photobooth - HTML5 & NodeJS](https://photobooth.raymondlewisjones.com/images/card.jpg)
+
+[![Watch the video](https://photobooth.raymondlewisjones.com/images/preview.jpg?r=123)](https://www.youtube.com/watch?v=kW3Qoou4UmI)
+
 Clone this project into the directory of your choice on your Pi
 
 ## Dependencies
