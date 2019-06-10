@@ -13,3 +13,5 @@ Check out the QUICKINSTALL-README.md file in the project directory.
 
 ### Manual Install
 Check out the README.md in the project/src directory
+
+Repo - https://github.com/raymondljones/photobooth
