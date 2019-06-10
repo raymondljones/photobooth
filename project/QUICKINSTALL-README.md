@@ -13,7 +13,9 @@ Make sure you `cd` (via the command line) into the project directory (where the 
 `sh quick-install.sh`
 
 After reboot, the WiFi network will be:
+
 SSID: PhotoBooth
+
 Password: photoboothpass
 
 Anyone who joins the WiFi network will be able to access the Photo page via http://192.168.100.1
