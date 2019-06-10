@@ -372,10 +372,19 @@ $.fn.WebSocketConnect = function () {
 				var data = JSON.parse (evt.data);
 			
 				if (data.message == "success") {
+					
 					window.debug.warn ("API Websocket capture success ...");
 				}
 				if (data.message == "error") {
+					
 					window.debug.warn ("API Websocket capture error ...");
+				}
+				if (data.message == "shoot") {
+					
+					if (!$html.is ('.countdown')) {
+					
+						$.fn.startCountdown ();
+					}
 				}
 			} catch (err) {
 				

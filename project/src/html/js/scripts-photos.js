@@ -3,6 +3,7 @@ $html = $('html');
 $body = $('body');
 $photos = $('ul#photos');
 $print = $('#print');
+$shoot = $('#shoot');
 $socket = null;
 	
 /*$image = {
@@ -45,6 +46,21 @@ $.fn.start = function () {
 		1000
 	);
 };
+
+$.fn.takePhoto = function () {
+	
+	$shootPayload = {
+		message: "shoot"
+	};
+	$socket.send (JSON.stringify ($shootPayload));
+};
+
+$shoot.click (
+	function (e) {
+		
+		$.fn.takePhoto ();
+	}
+);
   
 $.fn.WebSocketConnect = function () {
 

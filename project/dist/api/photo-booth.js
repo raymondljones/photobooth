@@ -291,6 +291,18 @@ wsServer.on (
 				
 						conn.sendUTF (JSON.stringify (removed));
 					});
+        		} else if (data.message == "shoot") {
+        			
+        			dmessage ("Shoot photo");
+        			
+        			var shoot = {
+						message: "shoot"
+					};
+					
+					wsServer.connections.forEach (function (conn) {
+				
+						conn.sendUTF (JSON.stringify (shoot));
+					});
         		} else if (data.message == "reboot") {
         			
         			dmessage ("Rebooted");
