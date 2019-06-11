@@ -15,3 +15,5 @@ Check out the QUICKINSTALL-README.md file in the project directory.
 Check out the README.md in the project/src directory
 
 Repo - https://github.com/raymondljones/photobooth
+
+Check out the Wiki for more info - https://github.com/raymondljones/photobooth/wiki
