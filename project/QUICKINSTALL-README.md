@@ -19,3 +19,5 @@ SSID: PhotoBooth
 Password: photoboothpass
 
 Anyone who joins the WiFi network will be able to access the Photo page via http://192.168.100.1
+
+Check out the Wiki for more info - https://github.com/raymondljones/photobooth/wiki
