@@ -84,3 +84,5 @@ Then you just need to know the local ip address of the pi.  For example, let's s
 ### If you chose to do the WiFi AP:
 Any other machine in range will be able to connect to the `PhotoBooth` Wifi network using `photoboothpass` as the password.
 Once connected, the same photo listing page will be available via `http://192.168.100.1` in any browser.  The benefit to this is that it will not require internet past the point of setup, and anyone using the booth will be able to access the photos of themselves as long as they are in range.
+
+Check out the Wiki for more info - https://github.com/raymondljones/photobooth/wiki
