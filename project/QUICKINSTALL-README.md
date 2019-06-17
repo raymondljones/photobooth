@@ -1,4 +1,4 @@
-# PhotoBooth Rpi Project
+# How to Quick Install the HTML5 and NodeJS PhotoBooth fopr the Raspberry Pi
 
 ![Photobooth - HTML5 & NodeJS](https://photobooth.raymondlewisjones.com/images/card.jpg)
 
