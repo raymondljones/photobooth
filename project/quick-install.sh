@@ -24,6 +24,7 @@ chmod -R 0777 /var/www/html/*
 apt-get install dnsmasq hostapd -y
 systemctl stop dnsmasq
 systemctl stop hostapd
+cp -Rf ./reference/dnsmasq-default.txt /etc/dnsmasq.conf
 cp -Rf ./reference/dhcpd-default.txt /etc/dhcpcd.conf
 service dhcpcd restart
 cp -Rf ./reference/hostapd-conf-default.txt /etc/hostapd/hostapd.conf
